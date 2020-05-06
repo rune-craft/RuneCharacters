@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="RuneCharacters:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/RuneCharacters_jar</output-path>
+    <root id="archive" name="RuneCharacters.jar">
+      <element id="module-output" name="RuneCharacters.main" />
+    </root>
+  </artifact>
+</component>

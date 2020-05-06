@@ -1,0 +1,15 @@
+[
+    {
+        "modid": "runecharacters",
+        "name": "RuneCharacters",
+        "authorList": [
+            "Azure"
+        ],
+        "dependencies": [
+            "spongeapi@7.1.0"
+        ],
+        "requiredMods": [
+            "spongeapi@7.1.0"
+        ]
+    }
+]
