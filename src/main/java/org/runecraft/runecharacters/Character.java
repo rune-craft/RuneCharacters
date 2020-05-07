@@ -12,6 +12,7 @@ import org.runecraft.runeelements.PrimalElement;
 import org.spongepowered.api.item.inventory.Inventory;
 import org.spongepowered.api.item.inventory.InventoryArchetypes;
 import org.spongepowered.api.item.inventory.ItemStack;
+import org.spongepowered.api.item.inventory.property.SlotIndex;
 import org.spongepowered.api.item.inventory.property.SlotPos;
 import org.spongepowered.api.item.inventory.query.QueryOperationTypes;
 
@@ -53,50 +54,61 @@ public class Character {
             return  new Character(owner, uid, clazz, level, health, primalElement, stats, abilities);
         }
 
-        public void setUUID(UUID uid) {
+        public Character.Builder setUUID(UUID uid) {
             this.uid = uid;
+            return this;
         }
 
-        public void setOwner(User owner) {
+        public Character.Builder setOwner(User owner) {
             this.owner = owner;
+            return this;
         }
 
-        public void setHiddenElement(HiddenElement hiddenElement) {
+        public Character.Builder setHiddenElement(HiddenElement hiddenElement) {
             this.hiddenElement = Optional.ofNullable(hiddenElement);
+            return this;
         }
 
-        public void setCharacterClass(CharacterClass clazz) {
+        public Character.Builder setCharacterClass(CharacterClass clazz) {
             this.clazz = clazz;
+            return this;
         }
 
-        public void setLevel(int level){
+        public Character.Builder setLevel(int level){
             this.level = level;
+            return this;
         }
 
-        public void setPrimalElement(PrimalElement element){
+        public Character.Builder setPrimalElement(PrimalElement element){
             this.primalElement = element;
+            return this;
         }
 
-        public void setStat(StatType type, int level){
+        public Character.Builder setStat(StatType type, int level){
             stats.remove(type);
             stats.put(type, new Stat(level));
+            return this;
         }
 
-        public void setAbiliity(AbiliityType abiliity, int level, double xp){
+        public Character.Builder setAbiliity(AbiliityType abiliity, int level, double xp){
             abilities.remove(abiliity);
             abilities.put(abiliity, new Abiliity(level, xp));
+            return this;
         }
 
-        public void setHealth(int health){
+        public Character.Builder setHealth(int health){
             this.health = health;
+            return this;
         }
 
-        public void setOnline(boolean bool){
+        public Character.Builder setOnline(boolean bool){
             this.online = bool;
+            return this;
         }
 
-        public void setRegister(boolean bool){
+        public Character.Builder setRegister(boolean bool){
             isRegistering = bool;
+            return this;
         }
 
     }
@@ -124,6 +136,10 @@ public class Character {
     public Character(User owner, UUID uid, CharacterClass clazz, int level, int health, PrimalElement primalElement, Map<StatType, Stat> stats, Map<AbiliityType, Abiliity> abilities, HiddenElement hiddenElement) {
         this(owner, uid ,clazz, level, health, primalElement, stats, abilities);
         this.hiddenElement = hiddenElement;
+    }
+
+    public static Character.Builder builder(){
+        return new Character.Builder();
     }
 
     public static Optional<Character> getCurrentCharacter(User user){
@@ -190,24 +206,22 @@ public class Character {
 
     }
 
-    public Inventory loadInventory(){
+    /*public Inventory loadInventory(){
         if(owner.getPlayer().isPresent()){
             Inventory inv = Inventory.builder()
                     .forCarrier(owner.getPlayer().get())
                     .of(InventoryArchetypes.PLAYER).build(RuneCharacters.getInstance());
 
-            for(int y = 0; y<4; y++){
-                for(int x = 0; x<9; x++){
-                    Optional<ItemStack> readed = Utils.readItemStack(x,y,owner);
-                    if(readed.isPresent()){
-                        inv.query(QueryOperationTypes.INVENTORY_PROPERTY.of(SlotPos.of(x,y))).set(readed.get());
-                    }
+            for(int i = 0; i<36; i++){
+                //Optional<ItemStack> readed = Utils.readItemStack(x,y,owner);
+                if(readed.isPresent()) {
+                    inv.query(QueryOperationTypes.INVENTORY_PROPERTY.of(SlotIndex.of(i))).set(readed.get());
                 }
             }
             return inv;
         }
         return null;
-    }
+    }*/
 
 }
 
