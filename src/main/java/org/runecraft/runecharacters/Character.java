@@ -7,14 +7,9 @@ import org.runecraft.runecharacters.atributes.Stat;
 import org.runecraft.runecharacters.atributes.enums.AbiliityType;
 import org.runecraft.runecharacters.atributes.enums.StatType;
 import org.runecraft.runecharacters.enums.CharacterClass;
-import org.runecraft.runeelements.HiddenElement;
-import org.runecraft.runeelements.PrimalElement;
-import org.spongepowered.api.item.inventory.Inventory;
-import org.spongepowered.api.item.inventory.InventoryArchetypes;
+import org.runecraft.runecharacters.elements.HiddenElement;
+import org.runecraft.runecharacters.elements.PrimalElement;
 import org.spongepowered.api.item.inventory.ItemStack;
-import org.spongepowered.api.item.inventory.property.SlotIndex;
-import org.spongepowered.api.item.inventory.property.SlotPos;
-import org.spongepowered.api.item.inventory.query.QueryOperationTypes;
 
 import java.util.*;
 
@@ -168,10 +163,6 @@ public class Character {
 
     public int getLevel() {
         return level;
-    }
-
-    public int getHealth() {
-        return health;
     }
 
     public CharacterClass getCharacterClass() {

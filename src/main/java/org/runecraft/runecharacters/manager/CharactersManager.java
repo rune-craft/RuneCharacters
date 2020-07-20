@@ -11,8 +11,8 @@ import org.runecraft.runecore.db.Atribute;
 import org.runecraft.runecore.db.DataBase;
 import org.runecraft.runecore.db.enums.DatabaseOperation;
 import org.runecraft.runecore.db.enums.Table;
-import org.runecraft.runeelements.HiddenElement;
-import org.runecraft.runeelements.PrimalElement;
+import org.runecraft.runecharacters.elements.HiddenElement;
+import org.runecraft.runecharacters.elements.PrimalElement;
 import org.spongepowered.api.scheduler.Task;
 
 import java.sql.PreparedStatement;
